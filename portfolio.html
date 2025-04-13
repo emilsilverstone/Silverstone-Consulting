@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silverstone Consulting - Portfolio</title>
+  <style>
+    /* (Reuse same CSS as previous pages) */
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; color: #333; }
+    .header { background: #fff; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .header-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+    .logo a { text-decoration: none; font-size: 24px; font-weight: bold; }
+    .logo a .red { color: red; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    nav ul li { margin-left: 15px; }
+    nav ul li a { text-decoration: none; color: #333; font-weight: bold; }
+    nav ul li a:hover { color: #555; }
+    #langToggle { margin-left: 20px; padding: 5px 10px; cursor: pointer; }
+    .content { max-width: 1200px; margin: auto; padding: 100px 20px 20px 20px; }
+    h1 { font-size: 36px; margin-bottom: 20px; }
+    p { font-size: 18px; line-height: 1.6; }
+    footer { text-align: center; padding: 20px; background-color: #f9f9f9; color: #777; margin-top: 50px; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html" id="logo_link"><span class="red">Silverstone</span> Consulting</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html" id="nav_about">About Us</a></li>
+          <li><a href="services.html" id="nav_services">Services</a></li>
+          <li><a href="portfolio.html" id="nav_portfolio">Portfolio</a></li>
+          <li><a href="contact.html" id="nav_contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button id="langToggle" onclick="toggleLanguage()">BG</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1 id="portfolio_title">Portfolio</h1>
+    <p id="portfolio_text">
+      Explore our project highlights and case studies. We take pride in our innovation and the results we deliver.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Silverstone Consulting. All rights reserved.
+  </footer>
+
+  <!-- Language Toggle Script -->
+  <script>
+    const translations = {
+      en: {
+        nav_about: "About Us",
+        nav_services: "Services",
+        nav_portfolio: "Portfolio",
+        nav_contact: "Contact Us",
+        logo_text: "<span class='red'>Silverstone</span> Consulting",
+        portfolio_title: "Portfolio",
+        portfolio_text: "Explore our project highlights and case studies. We take pride in our innovation and the results we deliver."
+      },
+      bg: {
+        nav_about: "За нас",
+        nav_services: "Услуги",
+        nav_portfolio: "Портфолио",
+        nav_contact: "Контакт",
+        logo_text: "<span class='red'>Silverstone</span> Консултинг",
+        portfolio_title: "Портфолио",
+        portfolio_text: "Разгледайте нашите проекти и казуси. Гордеем се с иновациите си и с резултатите, които постигаме."
+      }
+    };
+
+    let currentLang = localStorage.getItem('language') || 'en';
+
+    function updateContent(lang) {
+      document.getElementById('nav_about').innerHTML = translations[lang].nav_about;
+      document.getElementById('nav_services').innerHTML = translations[lang].nav_services;
+      document.getElementById('nav_portfolio').innerHTML = translations[lang].nav_portfolio;
+      document.getElementById('nav_contact').innerHTML = translations[lang].nav_contact;
+      document.getElementById('logo_link').innerHTML = translations[lang].logo_text;
+      if(document.getElementById('portfolio_title')){
+        document.getElementById('portfolio_title').innerHTML = translations[lang].portfolio_title;
+      }
+      if(document.getElementById('portfolio_text')){
+        document.getElementById('portfolio_text').innerHTML = translations[lang].portfolio_text;
+      }
+      document.getElementById('langToggle').innerHTML = lang === 'en' ? 'BG' : 'EN';
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'bg' : 'en';
+      localStorage.setItem('language', currentLang);
+      updateContent(currentLang);
+    }
+
+    window.onload = function() {
+      currentLang = localStorage.getItem('language') || 'en';
+      updateContent(currentLang);
+    };
+  </script>
+</body>
+</html>

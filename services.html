@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silverstone Consulting - Services</title>
+  <style>
+    /* Reused CSS */
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; color: #333; }
+    .header {
+      background: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .logo a {
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    /* Both words in the logo are red */
+    .logo a .red { color: red; }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li { margin-left: 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: #555; }
+    #langToggle {
+      margin-left: 20px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .content {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 20px 20px 20px;
+    }
+    h1 { font-size: 36px; margin-bottom: 20px; }
+    h2 { font-size: 28px; margin-bottom: 10px; color: #222; }
+    p { font-size: 18px; line-height: 1.6; margin-bottom: 20px; }
+    .service { margin-bottom: 40px; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #777;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html" id="logo_link"><span class="red">Silverstone Consulting</span></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html" id="nav_about">About Us</a></li>
+          <li><a href="services.html" id="nav_services">Services</a></li>
+          <li><a href="portfolio.html" id="nav_portfolio">Portfolio</a></li>
+          <li><a href="contact.html" id="nav_contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button id="langToggle" onclick="toggleLanguage()">BG</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1 id="services_title">Services</h1>
+    <!-- Service 1: Automated Translation & Localization -->
+    <div class="service">
+      <h2>Automated Translation & Localization</h2>
+      <p>
+        Our AI-driven translation service delivers accurate localizations with up to 95% accuracy.
+        It processes over 1,000 words in under 24 hours and supports more than 10 languages.
+      </p>
+    </div>
+    <!-- Service 2: Content Creation & Copywriting -->
+    <div class="service">
+      <h2>Content Creation & Copywriting</h2>
+      <p>
+        We generate high-quality content with an average readability score above 70.
+        Our service can boost conversion rates by up to 15% by crafting engaging blogs, social media posts, and marketing copy.
+      </p>
+    </div>
+    <!-- Service 3: Market Research -->
+    <div class="service">
+      <h2>Market Research</h2>
+      <p>
+        Gain comprehensive market insights with over 200 data points.
+        Our research ensures 95% reliable reporting and delivers actionable competitive intelligence within 48 hours.
+      </p>
+    </div>
+    <!-- Service 4: Legal Document Drafting Tools -->
+    <div class="service">
+      <h2>Legal Document Drafting Tools</h2>
+      <p>
+        Our automated drafting tools achieve 99% accuracy and reduce turnaround times by 50%.
+        They ensure full compliance when generating contracts, NDAs, and other legal documents.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Silverstone Consulting. All rights reserved.
+  </footer>
+
+  <!-- Language Toggle Script -->
+  <script>
+    const translations = {
+      en: {
+        nav_about: "About Us",
+        nav_services: "Services",
+        nav_portfolio: "Portfolio",
+        nav_contact: "Contact Us",
+        logo_text: "<span class='red'>Silverstone Consulting</span>",
+        services_title: "Services",
+        service1_title: "Automated Translation & Localization",
+        service1_text: "Our AI-driven translation service delivers accurate localizations with up to 95% accuracy. It processes over 1,000 words in under 24 hours and supports more than 10 languages.",
+        service2_title: "Content Creation & Copywriting",
+        service2_text: "We generate high-quality content with an average readability score above 70. Our service can boost conversion rates by up to 15% by crafting engaging blogs, social media posts, and marketing copy.",
+        service3_title: "Market Research",
+        service3_text: "Gain comprehensive market insights with over 200 data points. Our research ensures 95% reliable reporting and delivers actionable competitive intelligence within 48 hours.",
+        service4_title: "Legal Document Drafting Tools",
+        service4_text: "Our automated drafting tools achieve 99% accuracy and reduce turnaround times by 50%. They ensure full compliance when generating contracts, NDAs, and other legal documents."
+      },
+      bg: {
+        nav_about: "За нас",
+        nav_services: "Услуги",
+        nav_portfolio: "Портфолио",
+        nav_contact: "Контакт",
+        logo_text: "<span class='red'>Silverstone Consulting</span>",
+        services_title: "Услуги",
+        service1_title: "Автоматизиран превод и локализация",
+        service1_text: "Нашата AI-базирана услуга за превод осигурява точни локализации с до 95% точност. Обработва над 1000 думи за по-малко от 24 часа и поддържа над 10 езика.",
+        service2_title: "Създаване на съдържание и копирайтинг",
+        service2_text: "Създаваме висококачествено съдържание със среден readability score над 70. Нашата услуга може да увеличи конверсиите с до 15% чрез ангажиращи блогове, публикации в социалните мрежи и маркетингов текст.",
+        service3_title: "Пазарни изследвания",
+        service3_text: "Получете изчерпателна пазарна информация с над 200 данни. Нашите изследвания осигуряват 95% надеждност и предлагат конкурентен анализ в рамките на 48 часа.",
+        service4_title: "Инструменти за съставяне на правни документи",
+        service4_text: "Нашите автоматизирани инструменти за съставяне на правни документи постигат 99% точност и намаляват времето за обработка с 50%. Те гарантират пълно спазване на стандартите при изготвянето на договори, NDA и други документи."
+      }
+    };
+
+    let currentLang = localStorage.getItem('language') || 'en';
+
+    function updateContent(lang) {
+      document.getElementById('nav_about').innerHTML = translations[lang].nav_about;
+      document.getElementById('nav_services').innerHTML = translations[lang].nav_services;
+      document.getElementById('nav_portfolio').innerHTML = translations[lang].nav_portfolio;
+      document.getElementById('nav_contact').innerHTML = translations[lang].nav_contact;
+      document.getElementById('logo_link').innerHTML = translations[lang].logo_text;
+      if(document.getElementById('services_title')){
+        document.getElementById('services_title').innerHTML = translations[lang].services_title;
+      }
+      // Since the services content is hard-coded in this file, you might want to replace them via script or update manually.
+      // For simplicity, one could leave the service block text or enhance this script to update individual service titles and texts.
+      document.getElementById('langToggle').innerHTML = lang === 'en' ? 'BG' : 'EN';
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'bg' : 'en';
+      localStorage.setItem('language', currentLang);
+      updateContent(currentLang);
+    }
+
+    window.onload = function() {
+      currentLang = localStorage.getItem('language') || 'en';
+      updateContent(currentLang);
+    };
+  </script>
+</body>
+</html>
